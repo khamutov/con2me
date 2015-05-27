@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<%= image_tag @offer.image.url(:medium) %>
+<p>
+  <strong>Category:</strong>
+  <%= @offer.category_id %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @offer.price %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @offer.desc %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @offer.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @offer.phone %>
+</p>
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>
