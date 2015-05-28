@@ -54,4 +54,18 @@ $( document ).ready(function() {
       alert( "Load was performed." );
     });
   });
+
+  $('#offer_image').on('change', function(event) {
+    var files = event.target.files;
+    var image = files[0];
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      var img = new Image();
+      console.log(file);
+      img.src = file.target.result;
+      $('#customButton').html(img);
+    };
+    reader.readAsDataURL(image);
+    console.log(files);
+  });
 });
