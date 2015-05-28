@@ -28,7 +28,15 @@ gem 'spring',        group: :development
 
 gem 'paperclip', '~> 4.2'
 
-gem 'capistrano', '~> 3.4.0'
+group :development do
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-unicorn'
+end
+
+gem 'unicorn'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
