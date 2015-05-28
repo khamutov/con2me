@@ -35,7 +35,7 @@
 
     <div class="b-product">
       <div class="b-price b-price_product">
-        <span class="b-price__text b-price__text_product"><%= @offer.price.round %>р</span>
+        <span class="b-price__text b-price__text_product"><% if @offer.price.present? %><%= @offer.try(:price).try(:round) %>р<% end %></span>
         <span class="b-price__space b-price__space_product">270м</span>
       </div>
       <!-- /.b-price -->

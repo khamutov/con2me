@@ -39,7 +39,7 @@
         <!-- /.b-item__image -->
         <div class="b-item__info">
           <div class="b-price">
-            <span class="b-price__text"><%= offer.price.round %>р</span>
+            <span class="b-price__text"><% if offer.price.present? %><%= offer.try(:price).try(:round) %>р<% end %></span>
             <span class="b-price__space">270м</span>
           </div>
           <!-- /.b-price -->

@@ -61,3 +61,5 @@ set :deploy_to, "/home/conme/con2me"
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+
+set :conditionally_migrate, true
