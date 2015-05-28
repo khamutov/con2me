@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'paperclip', '~> 4.2'
+gem 'mysql2'
 
 group :development do
   gem 'capistrano', '~> 3.4.0'

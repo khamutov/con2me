@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150527064325) do
 
   create_table "offers", force: true do |t|
     t.integer  "category_id"
-    t.decimal  "price"
+    t.decimal  "price",              precision: 10, scale: 0
     t.text     "desc"
     t.string   "name"
     t.string   "phone"
