@@ -26,7 +26,7 @@
 <div class="b-navigation jsNav" style="display:none;">
   <div class="b-navigation__list">
     <div class="b-menu">
-      <form class="b-menu__form" action="">
+      <form class="b-menu__form" action="/offers">
         <div class="b-menu__item">
           <a href="" class="b-menu__link b-menu__link_header jsMenuItem jsMenuItemMain">
             <input type="hidden" name="b-menu__input jsMenuInput">
@@ -35,81 +35,20 @@
             <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-checked"></use></svg>
           </a>
         </div>
-        <!-- /.b-menu__item -->
-        <div class="b-menu__item">
-          <a href="#" class="b-menu__link jsMenuItem is-checked">
-            <input type="hidden" name="b-menu__input jsMenuInput">
-            Транспорт
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-unchecked"></use></svg>
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-checked"></use></svg>
-          </a>
-        </div>
-        <!-- /.b-menu__item -->
-        <div class="b-menu__item">
-          <a href="#" class="b-menu__link jsMenuItem">
-            <input type="hidden" name="b-menu__input jsMenuInput">
-            Работа
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-unchecked"></use></svg>
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-checked"></use></svg>
-          </a>
-        </div>
-        <!-- /.b-menu__item -->
-        <div class="b-menu__item">
-          <a href="#" class="b-menu__link jsMenuItem">
-            <input type="hidden" name="b-menu__input jsMenuInput">
-            Услуги
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-unchecked"></use></svg>
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-checked"></use></svg>
-          </a>
-        </div>
-        <!-- /.b-menu__item -->
-        <div class="b-menu__item">
-          <a href="#" class="b-menu__link jsMenuItem">
-            <input type="hidden" name="b-menu__input jsMenuInput">
-            Одежда
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-unchecked"></use></svg>
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-checked"></use></svg>
-          </a>
-        </div>
-        <!-- /.b-menu__item -->
-        <div class="b-menu__item">
-          <a href="#" class="b-menu__link jsMenuItem">
-            <input type="hidden" name="b-menu__input jsMenuInput">
-            Обувь
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-unchecked"></use></svg>
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-checked"></use></svg>
-          </a>
-        </div>
-        <!-- /.b-menu__item -->
-        <div class="b-menu__item">
-          <a href="#" class="b-menu__link jsMenuItem">
-            <input type="hidden" name="b-menu__input jsMenuInput">
-            Для дома и дачи
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-unchecked"></use></svg>
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-checked"></use></svg>
-          </a>
-        </div>
-        <!-- /.b-menu__item -->
-        <div class="b-menu__item">
-          <a href="#" class="b-menu__link jsMenuItem">
-            <input type="hidden" name="b-menu__input jsMenuInput">
-            Бытовая техника
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-unchecked"></use></svg>
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-checked"></use></svg>
-          </a>
-        </div>
-        <!-- /.b-menu__item -->
-        <div class="b-menu__item">
-          <a href="#" class="b-menu__link jsMenuItem">
-            <input type="hidden" name="b-menu__input jsMenuInput">
-            Хобби и отдых
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-unchecked"></use></svg>
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-checked"></use></svg>
-          </a>
-        </div>
-        <!-- /.b-menu__item -->
+        <% Category.all.order(:name).each do |category| %>
 
-        <button type="submit" class="b-menu__input-submit">Применить фильтр</button>
+          <div class="b-menu__item">
+            <a href="#" class="b-menu__link jsMenuItem is-checked">
+              <input type="hidden" category="<%= category.id %>" value="1">
+              <%= category.name %>
+              <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-unchecked"></use></svg>
+              <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-checked"></use></svg>
+            </a>
+          </div>
+          <!-- /.b-menu__item -->
+        <% end %>
+
+        <button type="submit" class="b-menu__input-submit" id="categorySubmit">Применить фильтр</button>
       </form>
     </div>
     <!-- /.b-menu -->

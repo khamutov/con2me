@@ -1,3 +1,11 @@
+function extractCategory() {
+  var arr = [];
+  $('.jsMenuItem.is-checked input').each(function() {
+    arr.push(parseInt($(this).attr("category")));
+  });
+  return arr;
+}
+
 $( document ).ready(function() {
 
   console.log('I\'m ready');
@@ -38,4 +46,12 @@ $( document ).ready(function() {
     document.getElementById("fileName").innerHTML = fileName;  // display the file name
   }, false);
 
+  $('#categorySubmit').click(function() {
+    $(this).attr('disabled', 'disabled');
+    extractCategory();
+    $.get( "ajax/test.html", function( data ) {
+      $( ".result" ).html( data );
+      alert( "Load was performed." );
+    });
+  });
 });
