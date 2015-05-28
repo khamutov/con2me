@@ -20,7 +20,7 @@
         </div>
         <!-- /.b-add-form__line -->
         <div class="b-add-form__line">
-          <%= f.number_field :category_id, placeholder: "Категория", class: "b-add-form__input" %>
+          <%= f.collection_select :category_id, Category.all, :id, :name %>
         </div>
         <!-- /.b-add-form__line -->
         <div class="b-add-form__line">
