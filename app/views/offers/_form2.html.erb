@@ -1,0 +1,45 @@
+<div class="b-add-section jsAddSection">
+  <%= form_for(Offer.new, :html => { :multipart => true }) do |f| %>
+    <div class="b-add-section__file">
+      <%= f.file_field :image %>
+      <!-- <input type="file" id="fileUpload"> -->
+      <div id="customButton">
+        <svg class="icon icon-camera"><use xlink:href="#icon-camera"></use></svg>
+        <div class="b-add-section__text">
+          Загрузить<br>
+          картинку
+        </div>
+      </div>
+      <div id="fileName"></div>
+    </div>
+    <!-- /.b-add-section__file -->
+    <div class="b-add-section__fields">
+      <form action="" class="b-add-form">
+        <div class="b-add-form__line">
+          <%= f.number_field :price, min: 0, max: 1000000, class: "b-add-form__input", placeholder: "Цена"  %>
+        </div>
+        <!-- /.b-add-form__line -->
+        <div class="b-add-form__line">
+          <%= f.number_field :category_id, placeholder: "Категория", class: "b-add-form__input" %>
+        </div>
+        <!-- /.b-add-form__line -->
+        <div class="b-add-form__line">
+          <%= f.text_area :desc, class: "b-add-form__input b-add-form__input_textarea", placeholder: "Описание" %>
+        </div>
+        <!-- /.b-add-form__line -->
+        <div class="b-add-form__line">
+          <%= f.text_field :name, class: "b-add-form__input", placeholder:"Имя" %>
+        </div>
+        <!-- /.b-add-form__line -->
+        <div class="b-add-form__line">
+          <%= f.text_field :phone, class: "b-add-form__input", placeholder:"Телефон" %>
+        </div>
+        <!-- /.b-add-form__line -->
+        <button type="submit" class="b-add-form__submit">Добавить объявление</button>
+      </form>
+      <!-- /.b-add-form -->
+    </div>
+    <!-- /.b-add-section__fields -->
+  <% end %>
+</div>
+<!-- /.b-add-section -->

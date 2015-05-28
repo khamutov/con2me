@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  resources :offers
+  resources :offers do
+    collection do
+      post 'search'
+    end
+  end
+
+  post '/search/:query' => 'offers#search'
 
   resources :categories
+
+  root 'offers#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

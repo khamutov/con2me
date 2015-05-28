@@ -4,7 +4,12 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.all
+    if params[:q].present?
+      wildcard_search = "%#{params[:q]}%"
+      @offers = Offer.where('desc like ?', wildcard_search)
+    else
+      @offers = Offer.all
+    end
   end
 
   # GET /offers/1

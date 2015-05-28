@@ -1,33 +1,69 @@
-<h1>Listing offers</h1>
+<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <symbol id="icon-menu" viewBox="0 0 1024 1024">
+      <title>menu</title>
+      <path class="path1" d="M128 768h768v-85.333h-768v85.333zM128 554.667h768v-85.333h-768v85.333zM128 256v85.333h768v-85.333h-768z"></path>
+    </symbol>
+    <symbol id="icon-camera" viewBox="0 0 1024 1024">
+      <title>camera</title>
+      <path class="path1" d="M512 320.032c-141.408 0-256 114.592-256 256 0 141.376 114.592 256 256 256 141.376 0 256-114.624 256-256s-114.624-256-256-256zM657.76 700.992c-68.992 80.512-190.176 89.824-270.688 20.8-80.544-68.992-89.824-190.208-20.8-270.688 68.96-80.544 190.176-89.824 270.688-20.8 80.48 68.96 89.792 190.208 20.8 270.688zM512 448.032c8.832 0 16 7.168 16 16s-7.168 16-16 16c-53.024 0-95.968 42.976-96 95.968v0.064c0 8.8-7.168 16-16 16s-16-7.2-16-16v-0.064c0.032-70.656 57.312-127.968 128-127.968zM943.744 289.344l-138.688-23.136-43.936-109.888c-14.688-36.64-49.696-60.32-89.12-60.32h-320c-39.424 0-74.432 23.68-89.152 60.352l-43.904 109.856-138.656 23.136c-46.528 7.712-80.288 47.52-80.288 94.656v480c0 52.928 43.072 96 96 96h832c52.928 0 96-43.072 96-96v-480c0-47.136-33.76-86.944-80.256-94.656zM960 864c0 17.696-14.304 32-32 32h-832c-17.696 0-32-14.304-32-32v-480c0-15.648 11.328-28.992 26.752-31.552l174.208-29.024 57.312-143.296c4.896-12.128 16.64-20.128 29.728-20.128h320c13.056 0 24.8 7.968 29.696 20.128l57.312 143.296 174.24 29.024c15.424 2.56 26.752 15.904 26.752 31.552v480z"></path>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 1024 1024">
+      <title>search</title>
+      <path class="path1" d="M992.262 871.396l-242.552-206.294c-25.074-22.566-51.89-32.926-73.552-31.926 57.256-67.068 91.842-154.078 91.842-249.176 0-212.078-171.922-384-384-384-212.076 0-384 171.922-384 384s171.922 384 384 384c95.098 0 182.108-34.586 249.176-91.844-1 21.662 9.36 48.478 31.926 73.552l206.294 242.552c35.322 39.246 93.022 42.554 128.22 7.356s31.892-92.898-7.354-128.22zM384 640c-141.384 0-256-114.616-256-256s114.616-256 256-256 256 114.616 256 256-114.614 256-256 256z"></path>
+    </symbol>
+    <symbol id="icon-plus" viewBox="0 0 1024 1024">
+      <title>plus</title>
+      <path class="path1" d="M992 384h-352v-352c0-17.672-14.328-32-32-32h-192c-17.672 0-32 14.328-32 32v352h-352c-17.672 0-32 14.328-32 32v192c0 17.672 14.328 32 32 32h352v352c0 17.672 14.328 32 32 32h192c17.672 0 32-14.328 32-32v-352h352c17.672 0 32-14.328 32-32v-192c0-17.672-14.328-32-32-32z"></path>
+    </symbol>
+    <symbol id="icon-checkbox-checked" viewBox="0 0 1024 1024">
+      <title>checkbox-checked</title>
+      <path class="path1" d="M896 0h-768c-70.4 0-128 57.6-128 128v768c0 70.4 57.6 128 128 128h768c70.4 0 128-57.6 128-128v-768c0-70.4-57.6-128-128-128zM448 794.51l-237.254-237.256 90.51-90.508 146.744 146.744 306.746-306.746 90.508 90.51-397.254 397.256z"></path>
+    </symbol>
+    <symbol id="icon-checkbox-unchecked" viewBox="0 0 1024 1024">
+      <title>checkbox-unchecked</title>
+      <path class="path1" d="M896 0h-768c-70.4 0-128 57.6-128 128v768c0 70.4 57.6 128 128 128h768c70.4 0 128-57.6 128-128v-768c0-70.4-57.6-128-128-128zM896 896h-768v-768h768v768z"></path>
+    </symbol>
+  </defs>
+</svg>
+<%= render 'top_bar' %>
+<div class="b-wrapper">
 
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Price</th>
-      <th>Desc</th>
-      <th>Name</th>
-      <th>Phone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="b-content jsContent">
 
-  <tbody>
     <% @offers.each do |offer| %>
-      <tr>
-        <td><%= offer.category_id %></td>
-        <td><%= offer.price %></td>
-        <td><%= offer.desc %></td>
-        <td><%= offer.name %></td>
-        <td><%= offer.phone %></td>
-        <td><%= link_to 'Show', offer %></td>
-        <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
-        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <a href="<%= url_for(offer) %>" class="b-item jsItem">
+        <div class="b-item__image">
+          <%= image_tag offer.image.url(:medium), class: "b-item__img" %>
+        </div>
+        <!-- /.b-item__image -->
+        <div class="b-item__info">
+          <div class="b-price">
+            <span class="b-price__text"><%= offer.price.round %>р</span>
+            <span class="b-price__space">270м</span>
+          </div>
+          <!-- /.b-price -->
+          <div class="b-description">
+            <div class="b-description__text">
+              <%= offer.desc %>
+            </div>
+            <!-- /.b-description__text -->
+          </div>
+          <!-- /.b-description -->
+          <div class="b-contact">
+            <span class="b-contact__name"><%= offer.name %>,</span>
+            <span class="b-contact__phone"><%= offer.phone %></span>
+          </div>
+          <!-- /.b-contact -->
+        </div>
+        <!-- /.b-item__info -->
+      </a>
+      <!-- /.b-item -->
     <% end %>
-  </tbody>
-</table>
 
-<br>
+  </div>
+  <!-- /.b-content -->
+</div>
+<!-- /.b-wrapper -->
+<%= render 'form2' %>
 
-<%= link_to 'New Offer', new_offer_path %>
