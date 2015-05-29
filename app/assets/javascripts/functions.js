@@ -20,8 +20,13 @@ $( document ).ready(function() {
         e.preventDefault();
         $('.jsOpenNav').click();
       });
+      $('.b-content').one('scroll', function(e) {
+        e.preventDefault();
+        $('.jsOpenNav').click();
+      });
     } else {
       $('.b-content').off('click');
+      $('.b-content').off('scroll');
     }
   });
 
