@@ -31,35 +31,13 @@
 
   <div class="b-content jsContent">
 
-    <% @offers.each do |offer| %>
-      <a href="<%= url_for(offer) %>" class="b-item jsItem">
-        <div class="b-item__image">
-          <%= image_tag offer.image.url(:medium), class: "b-item__img" %>
-        </div>
-        <!-- /.b-item__image -->
-        <div class="b-item__info">
-          <div class="b-price">
-            <span class="b-price__text"><% if offer.price.present? %><%= offer.try(:price).try(:round) %>р<% end %></span>
-            <span class="b-price__space">270м</span>
-          </div>
-          <!-- /.b-price -->
-          <div class="b-description">
-            <div class="b-description__text">
-              <%= offer.desc %>
-            </div>
-            <!-- /.b-description__text -->
-          </div>
-          <!-- /.b-description -->
-          <div class="b-contact">
-            <span class="b-contact__name"><%= offer.name %>,</span>
-            <span class="b-contact__phone"><%= offer.phone %></span>
-          </div>
-          <!-- /.b-contact -->
-        </div>
-        <!-- /.b-item__info -->
-      </a>
-      <!-- /.b-item -->
-    <% end %>
+    <div id="offers_content">
+      <%= render @offers %>
+    </div>
+
+    <div id="infinite-scrolling">
+      <%= will_paginate %>
+    </div>
 
   </div>
   <!-- /.b-content -->

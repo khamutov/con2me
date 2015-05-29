@@ -4,7 +4,13 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.desc_contains(params[:search]).category_contains(params[:categories])
+    offers_scoped = Offer.desc_contains(params[:search]).category_contains(params[:categories]).order('created_at')
+    @offers = offers_scoped.paginate(:page => params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /offers/1

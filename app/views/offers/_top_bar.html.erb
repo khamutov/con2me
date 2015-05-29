@@ -11,9 +11,11 @@
         <svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>
       </button>
       <input type="search" value="<%= params[:search] %>" placeholder="Поиск" class="b-search__input-text" name="search">
-      <div id="category_input">
-        <% for cat_id in params[:categories] %>
-          <input type="number" name="categories[]" value="<%= cat_id %>" />
+      <div id="category_input" style="display: none">
+        <% unless params[:categories].nil? %>
+          <% for cat_id in params[:categories] %>
+            <input type="number" name="categories[]" value="<%= cat_id %>" />
+          <% end %>
         <% end %>
       </div>
     </form>

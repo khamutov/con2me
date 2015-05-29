@@ -4,6 +4,8 @@ class Offer < ActiveRecord::Base
 
   belongs_to :category
 
+  self.per_page = 5
+
   def self.desc_contains(search)
     if search.blank?
       all # scoped
