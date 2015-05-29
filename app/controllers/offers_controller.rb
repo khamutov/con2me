@@ -4,6 +4,7 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
+    params[:categories] ||= Category.all.select(:id).map(&:id).map(&:to_s)
     offers_scoped = Offer.desc_contains(params[:search]).category_contains(params[:categories]).order('created_at')
     @offers = offers_scoped.paginate(:page => params[:page])
     generate_dist
