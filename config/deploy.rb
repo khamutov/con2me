@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'con2me'
-set :repo_url, 'ssh://git@stash.ailabs.ru:7999/par/con2me.git'
+set :repo_url, 'git@github.com:khamutov/con2me.git'
 set :rvm_roles, [:app, :web]
 
 # Default branch is :master

@@ -6,4 +6,4 @@ jQuery ->
         $('.pagination').html('<img src="/ajax-loader.gif" alt="Loading..." title="Loading..." />')
         $.getScript more_posts_url
       return
-      return
+  return
