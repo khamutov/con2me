@@ -326,6 +326,10 @@ body.offMenu {
   clear: both;
 }
 
+.b-content_product {
+  padding-top: 30px;
+}
+
 /* END b-content */
 /* b-item */
 .b-item {
