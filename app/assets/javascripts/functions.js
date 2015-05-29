@@ -15,6 +15,14 @@ $( document ).ready(function() {
     $('.jsNav').toggle();
     $('.jsBar').toggleClass('is-active');
     $('body').toggleClass('offMenu');
+    if($('body').hasClass('offMenu')) {
+      $('.b-content').one('click', function(e) {
+        e.preventDefault();
+        $('.jsOpenNav').click();
+      });
+    } else {
+      $('.b-content').off('click');
+    }
   });
 
   $('.jsMenuItem').click(function(event) {
