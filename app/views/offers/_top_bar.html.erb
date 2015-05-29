@@ -6,11 +6,16 @@
   </div>
   <!-- /.b-toggle-menu -->
   <div class="b-search">
-    <form action="/offers" class="b-search__form">
+    <form action="/offers" class="b-search__form" method="get" id="filter_form">
       <button type="submit" value="" class="b-search__input-submit">
         <svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>
       </button>
-      <input type="search" value="" placeholder="Поиск" class="b-search__input-text" name="q">
+      <input type="search" value="<%= params[:search] %>" placeholder="Поиск" class="b-search__input-text" name="search">
+      <div id="category_input">
+        <% for cat_id in params[:categories] %>
+          <input type="number" name="categories[]" value="<%= cat_id %>" />
+        <% end %>
+      </div>
     </form>
     <!-- /.b-search__form -->
   </div>
@@ -38,8 +43,8 @@
         <% Category.all.order(:name).each do |category| %>
 
           <div class="b-menu__item">
-            <a href="#" class="b-menu__link jsMenuItem is-checked">
-              <input type="hidden" category="<%= category.id %>" value="1">
+            <a href="#" class="b-menu__link jsMenuItem <%= if params[:categories].try(:include?, category.id.to_s) then 'is-checked' else '' end %>">
+              <input type="hidden" category="<%= category.id %>" value="<%= if params[:categories].try(:include?, category.id.to_s) then 1 else 0 end %>">
               <%= category.name %>
               <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-unchecked"></use></svg>
               <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-checked"></use></svg>

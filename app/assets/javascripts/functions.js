@@ -46,13 +46,15 @@ $( document ).ready(function() {
     document.getElementById("fileName").innerHTML = fileName;  // display the file name
   }, false);
 
-  $('#categorySubmit').click(function() {
+  $('#categorySubmit').click(function(e) {
     $(this).attr('disabled', 'disabled');
-    extractCategory();
-    $.get( "ajax/test.html", function( data ) {
-      $( ".result" ).html( data );
-      alert( "Load was performed." );
+    var cat_ids = extractCategory();
+    console.log(cat_ids);
+    $("#category_input").empty();
+    $.each( cat_ids, function( key, value ) {
+      $("#category_input").append('<input type="number" name="categories[]" value="' + value + '" />');
     });
+    $("#filter_form").submit();
   });
 
   $('#offer_image').on('change', function(event) {

@@ -4,12 +4,7 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    if params[:q].present?
-      wildcard_search = "%#{params[:q]}%"
-      @offers = Offer.where('desc like ?', wildcard_search)
-    else
-      @offers = Offer.all
-    end
+    @offers = Offer.desc_contains(params[:search]).category_contains(params[:categories])
   end
 
   # GET /offers/1
