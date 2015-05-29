@@ -6,7 +6,13 @@
   <div class="b-item__info">
     <div class="b-price">
       <span class="b-price__text"><% if offer.price.present? %><%= offer.try(:price).try(:round) %>р<% end %></span>
-      <span class="b-price__space">270м</span>
+      <span class="b-price__space">
+        <% if @dists.first < 1000 %>
+          <%= @dists.shift %>м
+        <% else %>
+          <%= (@dists.shift/1000.0).round(1) %>км
+        <% end %>
+      </span>
     </div>
     <!-- /.b-price -->
     <div class="b-description">

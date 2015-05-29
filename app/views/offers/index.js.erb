@@ -1,6 +1,6 @@
 $('#offers_content').append('<%= j render @offers %>');
 <% if @offers.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate @offers %>');
+  $('.pagination').replaceWith('<%= j will_paginate @offers, :params => { :dist => @dists.last } %>');
 <% else %>
   $(window).off('scroll');
   $('.pagination').remove();

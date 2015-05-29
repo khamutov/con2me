@@ -6,6 +6,7 @@ class OffersController < ApplicationController
   def index
     offers_scoped = Offer.desc_contains(params[:search]).category_contains(params[:categories]).order('created_at')
     @offers = offers_scoped.paginate(:page => params[:page])
+    generate_dist
 
     respond_to do |format|
       format.html
@@ -76,5 +77,19 @@ class OffersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
       params.require(:offer).permit(:category_id, :price, :desc, :name, :phone, :image)
+    end
+
+    def generate_dist
+      # add first elem
+      @dists = []
+      dist = params[:dist].try(:to_i) || 270
+      if dist == 270
+        @dists << dist + (-30..30).to_a.sample
+      else
+        @dists << dist + (20..250).to_a.sample
+      end
+      for i in 1..Offer.per_page
+        @dists << @dists.last + (20..250).to_a.sample
+      end
     end
 end
