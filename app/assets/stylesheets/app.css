@@ -596,3 +596,7 @@ body.offMenu {
 }
 
 /* END b-add-form */
+
+#infinite-scrolling * {
+    color: #ffffff;
+}
