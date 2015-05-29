@@ -36,7 +36,13 @@
     <div class="b-product">
       <div class="b-price b-price_product">
         <span class="b-price__text b-price__text_product"><% if @offer.price.present? %><%= @offer.try(:price).try(:round) %>р<% end %></span>
-        <span class="b-price__space b-price__space_product">270м</span>
+        <span class="b-price__space b-price__space_product">
+          <% if params[:dist].to_i < 1000 %>
+            <%= params[:dist] %>м
+          <% else %>
+            <%= (params[:dist].to_i/1000.0).round(1) %>км
+          <% end %>
+        </span>
       </div>
       <!-- /.b-price -->
       <div class="b-product-image">
