@@ -17,7 +17,7 @@ class Offer < ActiveRecord::Base
 
   def self.category_contains(categories)
     if categories.nil?
-      all
+      none
     else
       cat_ids = categories.map(&:to_i)
       where(:category_id => cat_ids)
