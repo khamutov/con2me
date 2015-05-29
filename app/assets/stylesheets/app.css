@@ -203,7 +203,7 @@ body.offMenu {
 /* b-navigation */
 .b-navigation {
   background: #282828;
-  width: 55%;
+  width: 80%;
   height: 100%;
   position: fixed;
   z-index: 1;
@@ -246,7 +246,7 @@ body.offMenu {
   clear: both;
 }
 .b-top-bar.is-active {
-  left: 55%;
+  left: 80%;
 }
 .b-top-bar.is-active svg {
   color: #e1e1e1;
