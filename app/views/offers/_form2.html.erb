@@ -1,7 +1,7 @@
 <div class="b-add-section jsAddSection">
   <%= form_for(Offer.new, :html => { :multipart => true }) do |f| %>
     <div class="b-add-section__file">
-      <%= f.file_field :image %>
+      <%= f.file_field :image, accept: "image/*", capture: "camera" %>
       <!-- <input type="file" id="fileUpload"> -->
       <div id="customButton">
         <svg class="icon icon-camera"><use xlink:href="#icon-camera"></use></svg>
