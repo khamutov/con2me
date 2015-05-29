@@ -15,19 +15,6 @@ $( document ).ready(function() {
     $('.jsNav').toggle();
     $('.jsBar').toggleClass('is-active');
     $('body').toggleClass('offMenu');
-    if($('body').hasClass('offMenu')) {
-      $('.b-content').one('click', function(e) {
-        e.preventDefault();
-        $('.jsOpenNav').click();
-      });
-      $('.b-content').one('scroll', function(e) {
-        e.preventDefault();
-        $('.jsOpenNav').click();
-      });
-    } else {
-      $('.b-content').off('click');
-      $('.b-content').off('scroll');
-    }
   });
 
   $('.jsMenuItem').click(function(event) {
@@ -43,21 +30,22 @@ $( document ).ready(function() {
     };
   });
 
-  $('.jsAdd').click(function(event) {
+  /*$('.jsAdd').click(function(event) {
     event.preventDefault();
     $('.jsAddSection').fadeIn();
     $('body, html').addClass('overflow')
-  });
+  });*/
+  if(document.getElementById("customButton") != null) {
+    document.getElementById("customButton").addEventListener("click", function(){
+      document.getElementById("offer_image").click();  // trigger the click of actual file upload button
+    });
 
-  document.getElementById("customButton").addEventListener("click", function(){
-    document.getElementById("offer_image").click();  // trigger the click of actual file upload button
-  });
-
-  document.getElementById("offer_image").addEventListener("change", function(){
-    var fullPath = document.getElementById('offer_image').value;
-    var fileName = fullPath.split(/(\\|\/)/g).pop();  // fetch the file name
-    document.getElementById("fileName").innerHTML = fileName;  // display the file name
-  }, false);
+    document.getElementById("offer_image").addEventListener("change", function(){
+      var fullPath = document.getElementById('offer_image').value;
+      var fileName = fullPath.split(/(\\|\/)/g).pop();  // fetch the file name
+      document.getElementById("fileName").innerHTML = fileName;  // display the file name
+    }, false);
+  }
 
   $('#categorySubmit').click(function(e) {
     $(this).attr('disabled', 'disabled');
