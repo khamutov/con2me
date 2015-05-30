@@ -570,7 +570,9 @@ body.offMenu {
   border-bottom: 3px solid #c2c2c2;
 }
 .b-add-form__line select {
+  -webkit-appearance:none;
   color: #00baff;
+  background-color: white;
   font-size: 30px;
   height: 75px;
   padding-left: 15px;
