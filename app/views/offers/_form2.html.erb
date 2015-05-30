@@ -48,7 +48,7 @@
         </div>
         <!-- /.b-add-form__line -->
         <div class="b-add-form__line">
-          <%= f.collection_select :category_id, Category.all, :id, :name %>
+          <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "Категория" %>
         </div>
         <!-- /.b-add-form__line -->
         <div class="b-add-form__line">

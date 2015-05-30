@@ -579,6 +579,13 @@ body.offMenu {
   width: 120%;
   border: none;
 }
+
+/* individual: webkit */
+.b-add-form__input::-webkit-input-placeholder { color:#00baff; }
+
+/* individual: mozilla */
+.b-add-form__input::-moz-placeholder { color:#00baff; }
+
 .b-add-form__input {
   height: 75px;
   font-size: 30px;
