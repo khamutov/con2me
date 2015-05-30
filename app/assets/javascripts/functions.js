@@ -11,22 +11,8 @@ $( document ).ready(function() {
   console.log('I\'m ready');
 
   $('.jsOpenNav').click(function(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    $('.jsNav').toggle();
-    $('.jsBar').toggleClass('is-active');
-    $('body').toggleClass('offMenu');
-
-    if($('body').hasClass('offMenu')) {
-      $(document).on("click.nav", function(e) {
-        if ( !$(".b-navigation").is(e.target) && $(".b-navigation").has(e.target).length === 0 ) {
-          e.preventDefault();
-          $('.jsOpenNav').click();
-        }
-      });
-    } else {
-      $(document).off("click.nav");
-    }
+    $("#filter_form").prop("action", "/offers/nav");
+    $("#filter_form").submit();
   });
 
   $('.jsMenuItem').click(function(event) {

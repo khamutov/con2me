@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :offers do
     collection do
       post 'search'
+      get 'nav'
     end
   end
 

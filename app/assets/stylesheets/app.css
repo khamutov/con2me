@@ -203,14 +203,11 @@ body.offMenu {
 /* b-navigation */
 .b-navigation {
   background: #282828;
-  width: 80%;
+  width: 100%;
   height: 100%;
-  position: fixed;
   z-index: 1;
   left: 0;
-  height: 100%;
   top: 0;
-  overflow: auto;
 }
 
 /* END b-navigation */

@@ -30,36 +30,3 @@
   <!-- /.b-add -->
 </div>
 <!-- /.b-top-bar -->
-<div class="b-navigation jsNav" style="display:none;">
-  <div class="b-navigation__list">
-    <div class="b-menu">
-      <form class="b-menu__form" action="/offers">
-        <div class="b-menu__item">
-          <a href="" class="b-menu__link b-menu__link_header jsMenuItem jsMenuItemMain">
-            <input type="hidden" name="b-menu__input jsMenuInput">
-            Категории
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-unchecked"></use></svg>
-            <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-checked"></use></svg>
-          </a>
-        </div>
-        <% Category.all.order(:name).each do |category| %>
-
-          <div class="b-menu__item">
-            <a href="#" class="b-menu__link jsMenuItem <%= if params[:categories].try(:include?, category.id.to_s) then 'is-checked' else '' end %>">
-              <input type="hidden" category="<%= category.id %>" value="<%= if params[:categories].try(:include?, category.id.to_s) then 1 else 0 end %>">
-              <%= category.name %>
-              <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-unchecked"></use></svg>
-              <svg class="icon icon-checkbox-unchecked"><use xlink:href="#icon-checkbox-checked"></use></svg>
-            </a>
-          </div>
-          <!-- /.b-menu__item -->
-        <% end %>
-
-        <button type="submit" class="b-menu__input-submit" id="categorySubmit">Применить фильтр</button>
-      </form>
-    </div>
-    <!-- /.b-menu -->
-  </div>
-  <!-- /.b-navigation__list -->
-</div>
-<!-- /.b-navigation jsNav -->

@@ -29,6 +29,10 @@ class OffersController < ApplicationController
   def edit
   end
 
+  def nav
+
+  end
+
   # POST /offers
   # POST /offers.json
   def create
