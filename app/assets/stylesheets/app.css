@@ -174,8 +174,8 @@ input, select {
 }
 .icon-camera {
   color: #00baff;
-  font-size: 120px;
-  height: 120px;
+  font-size: 160px;
+  height: 160px;
 }
 
 body, html {
@@ -516,7 +516,7 @@ body.offMenu {
   z-index: 10;
 }
 .b-add-section__file {
-  min-height: 230px;
+  min-height: 400px;
   height: 35%;
   text-align: center;
   position: relative;
@@ -550,7 +550,7 @@ body.offMenu {
   bottom: 0;
   cursor: pointer;
   display: inline-block;
-  height: 220px;
+  height: 400px;
   left: 0;
   margin: auto;
   padding: 5px;
