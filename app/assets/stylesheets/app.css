@@ -407,6 +407,7 @@ body.offMenu {
 }
 .b-description__text_product {
   line-height: 1.4;
+  font-size: 24px;
 }
 .b-description_product {
   margin-bottom: 20px;
