@@ -30,22 +30,14 @@ $( document ).ready(function() {
     };
   });
 
-  /*$('.jsAdd').click(function(event) {
-    event.preventDefault();
-    $('.jsAddSection').fadeIn();
-    $('body, html').addClass('overflow')
-  });*/
-  if(document.getElementById("customButton") != null) {
-    document.getElementById("customButton").addEventListener("click", function(){
-      document.getElementById("offer_image").click();  // trigger the click of actual file upload button
-    });
-
-    document.getElementById("offer_image").addEventListener("change", function(){
-      var fullPath = document.getElementById('offer_image').value;
-      var fileName = fullPath.split(/(\\|\/)/g).pop();  // fetch the file name
-      document.getElementById("fileName").innerHTML = fileName;  // display the file name
-    }, false);
-  }
+  $("#customButton").click(function() {
+    $("#offer_image").click();
+  });
+  $("#offer_image").change(function () {
+    var fullPath = $('#offer_image').prop("value");
+    var fileName = fullPath.split(/(\\|\/)/g).pop();  // fetch the file name
+    $("#fileName").innerHTML = fileName;  // display the file name
+  });
 
   $('#categorySubmit').click(function(e) {
     $(this).attr('disabled', 'disabled');
