@@ -169,7 +169,7 @@ input, select {
   font-size: 35px;
 }
 .icon-checkbox-unchecked {
-  font-size: 25px;
+  font-size: 35px;
   color: #828282;
 }
 .icon-camera {
@@ -455,7 +455,7 @@ body.offMenu {
 }
 .b-menu__link svg {
   float: right;
-  margin-top: 1px;
+  margin-top: -3px;
 }
 .b-menu__link svg + svg {
   display: none;
