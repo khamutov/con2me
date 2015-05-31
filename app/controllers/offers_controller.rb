@@ -86,9 +86,10 @@ class OffersController < ApplicationController
 
     def generate_dist
       # add first elem
+      default_dist = 7140000
       @dists = []
-      dist = params[:dist].try(:to_i) || 270
-      if dist == 270
+      dist = params[:dist].try(:to_i) || default_dist
+      if dist == default_dist
         @dists << dist + (-30..30).to_a.sample
       else
         @dists << dist + (20..250).to_a.sample
