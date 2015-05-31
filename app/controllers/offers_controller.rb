@@ -90,7 +90,7 @@ class OffersController < ApplicationController
       @dists = []
       dist = params[:dist].try(:to_i) || default_dist
       if dist == default_dist
-        @dists << dist + (-30..30).to_a.sample
+        @dists << dist + (-2000..2000).to_a.sample
       else
         @dists << dist + (20..250).to_a.sample
       end
