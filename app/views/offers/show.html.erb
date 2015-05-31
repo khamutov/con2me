@@ -38,7 +38,7 @@
           <% if params[:dist].to_i < 1000 %>
             <%= params[:dist] %>м
           <% else %>
-            <%= (params[:dist].to_i/1000.0).round(1) %>км
+            <%= trim((params[:dist].to_i/1000.0).round(1)) %>км
           <% end %>
         </span>
       </div>

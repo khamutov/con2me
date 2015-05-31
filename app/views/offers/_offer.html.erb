@@ -10,7 +10,7 @@
         <% if @dists.first < 1000 %>
           <%= @dists.shift %>м
         <% else %>
-          <%= (@dists.shift/1000.0).round(1) %>км
+          <%= trim((@dists.shift/1000.0).round(1)) %>км
         <% end %>
       </span>
     </div>
