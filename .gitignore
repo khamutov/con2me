@@ -17,3 +17,6 @@
 
 .idea/*
 public/system/**
+
+lib/tasks/avito.csv
+lib/tasks/images/**

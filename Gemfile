@@ -30,6 +30,7 @@ gem 'paperclip', '~> 4.2'
 gem 'mysql2'
 
 gem 'will_paginate', '~> 3.0.5'
+gem 'nokogiri'
 
 group :development do
   gem 'capistrano', '~> 3.4.0'
