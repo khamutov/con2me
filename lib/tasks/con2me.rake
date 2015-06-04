@@ -11,4 +11,12 @@ namespace :con2me do
     end
   end
 
+  desc "TODO"
+  task randomize: :environment do
+    Offer.all.each do |offer|
+      offer.created_at = Forgery('browser').visit_date
+      offer.save!
+    end
+  end
+
 end
