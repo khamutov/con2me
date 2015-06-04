@@ -4,7 +4,7 @@ class Offer < ActiveRecord::Base
 
   belongs_to :category
 
-  self.per_page = 5
+  paginates_per 5
 
   def self.desc_contains(search)
     if search.blank?

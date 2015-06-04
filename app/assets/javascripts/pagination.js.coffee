@@ -1,7 +1,7 @@
 jQuery ->
   if $('#infinite-scrolling').size() > 0
     $(window).on 'scroll', ->
-      more_posts_url = $('.pagination a.next_page').attr('href')
+      more_posts_url = $('.pagination .next a').attr('href')
       if more_posts_url && $(window).scrollTop() > $(document).height() - $(window).height() - 160
         $('.pagination').html('<img src="/ajax-loader.gif" alt="Loading..." title="Loading..." />')
         $.getScript more_posts_url

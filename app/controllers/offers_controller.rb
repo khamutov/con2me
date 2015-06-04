@@ -6,7 +6,7 @@ class OffersController < ApplicationController
   def index
     params[:categories] ||= Category.all.select(:id).map(&:id).map(&:to_s)
     offers_scoped = Offer.desc_contains(params[:search]).category_contains(params[:categories]).order('created_at')
-    @offers = offers_scoped.paginate(:page => params[:page])
+    @offers = offers_scoped.page params[:page]
     generate_dist
 
     respond_to do |format|
@@ -94,7 +94,7 @@ class OffersController < ApplicationController
       else
         @dists << dist + (20..250).to_a.sample
       end
-      for i in 1..Offer.per_page
+      for i in 1..5
         @dists << @dists.last + (20..250).to_a.sample
       end
     end

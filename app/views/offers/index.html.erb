@@ -36,7 +36,7 @@
     </div>
 
     <div id="infinite-scrolling">
-      <%= will_paginate @offers, :params => { :dist => @dists.last } %>
+      <%= paginate @offers, :params => { :dist => @dists.last } %>
     </div>
 
   </div>

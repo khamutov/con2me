@@ -29,8 +29,11 @@ gem 'spring',        group: :development
 gem 'paperclip', '~> 4.2'
 gem 'mysql2'
 
-gem 'will_paginate', '~> 3.0.5'
+#gem 'will_paginate', '~> 3.0.5'
+gem 'kaminari'
 gem 'nokogiri'
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
 
 group :development do
   gem 'capistrano', '~> 3.4.0'
@@ -38,6 +41,11 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
   gem 'capistrano3-unicorn'
+end
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 gem 'unicorn'
