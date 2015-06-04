@@ -34,6 +34,7 @@ gem 'kaminari'
 gem 'nokogiri'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
+gem 'forgery'
 
 group :development do
   gem 'capistrano', '~> 3.4.0'
