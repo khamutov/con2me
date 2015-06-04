@@ -13,6 +13,33 @@ def download_image(uri, images_name)
   }
 end
 
+def find_image_link page
+  images = page.css('.big-picture img')
+  images_link = nil
+  images_name = nil
+  if images.length > 0
+    images_link = images[0]['src'].sub(/^\/\//, '')
+    images_name = URI(images_link).path.split('/').last
+    puts "#{images_name}"
+    puts "image => #{images_link}"
+    download_image images_link, images_name
+  end
+  images_name
+end
+
+def find_uslugi_image_link page
+  images = page.css('a.gallery-link')
+  images_name = nil
+  if images.length > 0
+    images_link = images[0]['data-fallback'].sub(/^\/\//, '')
+    images_name = URI(images_link).path.split('/').last
+    puts "#{images_name}"
+    puts "image => #{images_link}"
+    download_image images_link, images_name
+  end
+  images_name
+end
+
 def crawl_page(url, category)
   page = Nokogiri::HTML(open(url))
   links = page.css('.description h3.title a')
@@ -23,16 +50,15 @@ def crawl_page(url, category)
     title = link['title']
     link_link = link['href']
 
+    puts link_link
+
     link_page = Nokogiri::HTML(open("https://www.avito.ru#{link_link}"))
     desc = link_page.css('#desc_text').text
-    images = link_page.css('.big-picture img')
-    images_link = nil
-    images_name = nil
-    if images.length > 0
-      images_link = images[0]['src'].sub(/^\/\//, '')
-      images_name = URI(images_link).path.split('/').last
 
-      download_image images_link, images_name
+    images_name = if category == "Услуги"
+      find_uslugi_image_link link_page
+    else
+      find_image_link link_page
     end
 
     price = 0
@@ -42,13 +68,6 @@ def crawl_page(url, category)
     end
 
     name = link_page.css("strong[itemprop='name']").text
-
-    puts "name => #{name}"
-    puts "price => #{price}"
-    puts "desc => #{desc}"
-    puts "phone => #{}"
-    puts "category => #{category}"
-    puts "image => #{images_link}"
 
     CSV.open(@filename, "ab") do |csv|
       csv << [images_name,price,category,desc,name.strip,""]
@@ -72,19 +91,19 @@ end
 
 start_time = Time.now
 
-CSV.open(@filename, "wb") do |csv|
-  csv << ["Фото","Цена","Категория","Описание","Имя","Телефон"]
-end
+#CSV.open(@filename, "wb") do |csv|
+#  csv << ["Фото","Цена","Категория","Описание","Имя","Телефон"]
+#end
 
 uri_category = {
-    "Бытовая техника" => "https://www.avito.ru/moskva/bytovaya_elektronika",
-    "Для дома и дачи" => "https://www.avito.ru/moskva/dlya_doma_i_dachi",
-    "Обувь" => "https://www.avito.ru/moskva/odezhda_obuv_aksessuary/zhenskaya_odezhda/obuv",
-    "Одежда" => "https://www.avito.ru/moskva/odezhda_obuv_aksessuary/zhenskaya_odezhda",
-    "Ремонт и строительство" => "https://www.avito.ru/moskva/remont_i_stroitelstvo",
-    "Транспорт" => "https://www.avito.ru/sankt-moskva/transport",
-    "Услуги" => "https://www.avito.ru/moskva/uslugi",
-    "Хобби и отдых" => "https://www.avito.ru/moskva/hobbi_i_otdyh"
+#    "Бытовая техника" => "https://www.avito.ru/moskva/bytovaya_elektronika",
+#    "Для дома и дачи" => "https://www.avito.ru/moskva/dlya_doma_i_dachi",
+#    "Обувь" => "https://www.avito.ru/moskva/odezhda_obuv_aksessuary/zhenskaya_odezhda/obuv",
+#    "Одежда" => "https://www.avito.ru/moskva/odezhda_obuv_aksessuary/zhenskaya_odezhda",
+#    "Ремонт и строительство" => "https://www.avito.ru/moskva/remont_i_stroitelstvo",
+#    "Транспорт" => "https://www.avito.ru/moskva/transport",
+    "Услуги" => "https://www.avito.ru/moskva/uslugi"
+#    "Хобби и отдых" => "https://www.avito.ru/moskva/hobbi_i_otdyh"
 }
 
 uri_category.each do |category, uri|
