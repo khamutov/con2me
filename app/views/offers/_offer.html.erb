@@ -17,7 +17,7 @@
     <!-- /.b-price -->
     <div class="b-description">
       <div class="b-description__text">
-        <%= offer.desc %>
+        <%= truncate(offer.desc, :length => 250, :separator => ' ') %>
       </div>
       <!-- /.b-description__text -->
     </div>
