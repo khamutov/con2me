@@ -35,6 +35,7 @@ gem 'nokogiri'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'forgery'
+gem 'activerecord-import'
 
 group :development do
   gem 'capistrano', '~> 3.4.0'
