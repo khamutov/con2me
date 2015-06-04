@@ -1,4 +1,4 @@
-ActiveAdmin.register Category do
+ActiveAdmin.register Offer do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -13,8 +13,14 @@ ActiveAdmin.register Category do
 #   permitted
 # end
   index do
-    column :id, sortable: false
+    column :price, sortable: false
+    column :desc, sortable: false
     column :name, sortable: false
+    column :phone, sortable: false
+    column :image_file_name, sortable: false
+    column :image_content_type, sortable: false
+    column :image_file_size, sortable: false
   end
+
 
 end
