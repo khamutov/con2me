@@ -13,6 +13,7 @@ ActiveAdmin.register Offer do
 #   permitted
 # end
   index do
+    selectable_column
     column :price, sortable: false
     column :desc, sortable: false
     column :name, sortable: false
@@ -20,6 +21,7 @@ ActiveAdmin.register Offer do
     column :image_file_name, sortable: false
     column :image_content_type, sortable: false
     column :image_file_size, sortable: false
+    actions
   end
 
 
