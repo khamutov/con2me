@@ -7,10 +7,12 @@
     <div class="b-price">
       <span class="b-price__text"><% if offer.price.present? %><%= offer.try(:price).try(:round) %>р<% end %></span>
       <span class="b-price__space">
-        <% if @dists.first < 1000 %>
-          <%= @dists.shift %>м
-        <% else %>
-          <%= trim((@dists.shift/1000.0).round(1)) %>км
+        <% if false %>
+          <% if @dists.first < 1000 %>
+            <%= @dists.shift %>м
+          <% else %>
+            <%= trim((@dists.shift/1000.0).round(1)) %>км
+          <% end %>
         <% end %>
       </span>
     </div>
